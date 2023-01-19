@@ -9,18 +9,37 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack{
+            voiceCommandButton()
+           
         }
-        .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct voiceCommandButton: View {
+    var body: some View {
+        ZStack{
+            VStack(){
+                Spacer()
+                HStack{
+                    Spacer()
+                    Image(systemName: "mic.fill")
+                        .font(.system(size: 24, weight: .semibold, design: .default))
+                        .frame(width: 64, height: 64)
+                        .background(Color.green)
+                        .clipShape(Circle())
+                        .padding()
+                        .shadow(radius: 10)
+                }
+                
+            }.edgesIgnoringSafeArea(.all)
+        }
+        
     }
 }
