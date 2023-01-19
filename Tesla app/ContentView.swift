@@ -10,9 +10,14 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack{
+            ScrollView{
+                AppHeder()
+                .padding()
+            }
+        }
             voiceCommandButton()
            
-        }
+        
     }
 }
 
@@ -41,5 +46,28 @@ struct voiceCommandButton: View {
             }.edgesIgnoringSafeArea(.all)
         }
         
+    }
+}
+struct AppHeder: View {
+    var body: some View {
+        HStack{
+            VStack(alignment: .leading){
+                Text("Model 3".uppercased())
+                    .font(.caption2)
+                    .fontWeight(.medium)
+                    .padding(.vertical, 4)
+                    .padding(.horizontal, 8)
+                    .foregroundColor(Color.white)
+                    .background(Color.red)
+                    .clipShape(Capsule())
+                Text("Mach Five")
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
+            }
+            Spacer()
+            HStack{
+                
+            }
+        }
     }
 }
