@@ -14,10 +14,11 @@ struct ContentView: View {
                 AppHeder()
                 .padding()
             }
-        }
             voiceCommandButton()
-           
-        
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.black)
+        .foregroundColor(Color.white)
     }
 }
 
@@ -51,7 +52,8 @@ struct voiceCommandButton: View {
 struct AppHeder: View {
     var body: some View {
         HStack{
-            VStack(alignment: .leading){
+            
+            VStack(alignment: .leading, spacing: 10){
                 Text("Model 3".uppercased())
                     .font(.caption2)
                     .fontWeight(.medium)
@@ -63,11 +65,37 @@ struct AppHeder: View {
                 Text("Mach Five")
                     .font(.largeTitle)
                     .fontWeight(.semibold)
+               // commandDivder()
             }
             Spacer()
             HStack{
+                genralButton(icon : "lock.fill")
+                genralButton(icon : "gear")
                 
             }
+          
         }
+        .padding(.top)
+        commandDivder()
+    }
+}
+struct genralButton: View{
+    var icon: String
+    var body: some View{
+        Image(systemName: icon)
+            .frame(width: 44, height: 44)
+            .background(Color.white.opacity(0.2))
+            .clipShape(Circle())
+        
+    }
+}
+struct commandDivder: View{
+   
+    var body: some View{
+        Rectangle()
+            .frame(maxWidth: .infinity, maxHeight: 0.5)
+            .background(Color.white.opacity(0.1))
+            
+        
     }
 }
